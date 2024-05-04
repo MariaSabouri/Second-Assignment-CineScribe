@@ -1,62 +1,103 @@
-# Project Title
+# CineScribe
 
-Simple overview of use/purpose.
+A platform for searching films/series & actors/actress.
 
-## Description
+# Description
 
-An in-depth paragraph about your project and overview of use.
+First, the screen will display a question and ask you to choose a name of the film/series.Be aware to enter a valid name.
+Then a list of famous actors will be displayed.You could choose between these actors or other actors to get a summary of their information.
+To get the information you have to apply the methods described in below:
 
 ## Getting Started
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+* adding "org.json" package
+* Working with "Windows 11"
 
 ### Installing
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+* IPA key from:
 
+  https://omdbapi.com/
+
+  https://api-ninjas.com/api/celebrity
+* I've changed a little bit test files
+
+  
+Movie test:
+```
+    static void setUp() throws IOException {
+        movie = new Movie();
+        movie2=new Movie();
+        data1 = movie.getMovieData("maze runner");  // movie
+        data2 = movie2.getMovieData("this is us");   // series
+    }
+```
+Actor  test:
+```
+    static void setUp() {
+        actors = new Actors();
+        actors2 = new Actors();
+        data1 = actors.getActorData("jennifer lawrence");
+        data2 =  actors2.getActorData("robin williams");
+    }
+```
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
+
+### Films/Series
+* movieinfo.getMovieData(moviename)->"data":
+
+  A general json form description
 ```
-code blocks for commands
+movieinfo.getMovieData(moviename)
+```
+* movieinfo.getImdbVotesViaApi(data): Give a string form for Imdb
+```
+movieinfo.getImdbVotesViaApi(data)
+```
+* movieinfo.get.RatingViaApi(data): Give a string form for Rating
+```
+movieinfo.get.RatingViaApi(data)
+```
+* movieinfo.getActorListViaApi(data): Give a string form of famous actors name
+```
+movieinfo.getActorListViaApi(data)
+```
+### Actors
+* actorsinfo.getActorData(actorname)->"data":
+  A general json form description
+```
+actorsinfo.getActorData(actorname)
+```
+* actorsinfo.getNetWorthViaApi(actorname): Give a double form of NetWorth
+```
+actorsinfo.getNetWorthViaApi(actorname)
+```
+* actorsinfo.isAlive(actorname): return true if the actor mentioned is alive
+```
+actorsinfo.isAlive(actorname)
+```
+* actorsinfo.getDateOfDeathViaApi(actorname): Give a string form of Date Of Death
+```
+actorsinfo.getDateOfDeathViaApi(actorname)
 ```
 
 ## Help
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+This code is based on entering the correct name of films/series and actor/actress.
+So if you enter a wrong name,you might receive a systematic error.
+To fix it, please run the code again and reconsider to your input.
 
 ## Authors
 
-Contributors names and contact info
 
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+Maria Sbouri Dodaran
 
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
-
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+Mohammad Ghaderi
 
 ## Acknowledgments
 
 Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+* [HW](https://github.com/orgs/Advanced-Programming-1402/repositories)

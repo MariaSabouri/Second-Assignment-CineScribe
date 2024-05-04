@@ -4,11 +4,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ActorsTest {
     static String data1 , data2;
     static Actors actors;
+    static Actors actors2;
     @BeforeAll
     static void setUp() {
-        actors = new Actors("",false);
+        actors = new Actors();
+        actors2 = new Actors();
         data1 = actors.getActorData("jennifer lawrence");
-        data2 =  actors.getActorData("robin williams");
+        data2 =  actors2.getActorData("robin williams");
     }
     @Test
     void getNetWorthViaApi1() {
@@ -20,14 +22,14 @@ public class ActorsTest {
     }
     @Test
     void getNetWorthViaApi2() {
-        assertEquals(50000000,actors.getNetWorthViaApi(data2));
+        assertEquals(50000000,actors2.getNetWorthViaApi(data2));
     }
     @Test
     void IsAlive2() {
-        assertEquals(false,actors.isAlive(data2));
+        assertEquals(false,actors2.isAlive(data2));
     }
     @Test
     void getDateOfDeathViaApi2() {
-        assertEquals("2014-08-11", actors.getDateOfDeathViaApi(data2));
+        assertEquals("2014-08-11", actors2.getDateOfDeathViaApi(data2));
     }
 }
